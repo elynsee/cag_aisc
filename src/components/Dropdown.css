@@ -1,0 +1,100 @@
+.dls-dropdown {
+  position: relative;
+}
+
+.dls-dropdown__control {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* The shell already renders the §9.2 two-layer focus treatment on
+   :focus-within, so the control must not add the button outline on top. */
+.dls-dropdown__control:focus-visible {
+  outline: none;
+  border-color: var(--ring-brand);
+  box-shadow: 0 0 0 4px var(--ring-light);
+}
+
+.dls-dropdown__control:disabled {
+  background: var(--color-grey-25); /* §4.1 disabled */
+  border-color: var(--color-grey-100);
+  color: var(--color-grey-300);
+  cursor: not-allowed;
+}
+
+.dls-dropdown__value {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: var(--color-grey-700);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dls-dropdown__value--placeholder {
+  color: var(--color-grey-300); /* §4.2 placeholder */
+}
+
+.dls-dropdown__chevron {
+  flex: none;
+  color: var(--color-grey-500);
+  transition: transform 0.15s ease;
+}
+.dls-dropdown__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* --- Dropdown Option menu ------------------------------------------------ */
+.dls-dropdown__menu {
+  position: absolute;
+  top: calc(100% + var(--spacing-4));
+  right: 0;
+  left: 0;
+  z-index: 30;
+  max-height: 240px;
+  padding: var(--spacing-4);
+  margin: 0;
+  overflow-y: auto;
+  list-style: none;
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-100);
+  /* Nesting rule §8: inner radius = outer radius − gap padding (8 − 4 = 4) */
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-light-bg);
+}
+
+.dls-dropdown__option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  width: 100%;
+  padding: var(--spacing-8) var(--spacing-12);
+  color: var(--color-grey-700);
+  text-align: left;
+  border-radius: var(--radius-xs);
+}
+
+.dls-dropdown__option:hover:not(:disabled) {
+  background: var(--color-grey-75); /* §4.1 hover */
+  color: var(--color-grey-800);
+}
+
+/* §4.1 selected — Purple/100 fill, Purple/300 stroke, Purple/800 text */
+.dls-dropdown__option--selected {
+  background: var(--color-purple-100);
+  border: 1px solid var(--color-purple-300);
+  color: var(--color-purple-800);
+}
+
+.dls-dropdown__option:disabled {
+  color: var(--color-grey-300);
+  cursor: not-allowed;
+}
+
+.dls-dropdown__option-meta {
+  color: var(--color-grey-500);
+}
+.dls-dropdown__option--selected .dls-dropdown__option-meta {
+  color: var(--color-purple-800);
+}

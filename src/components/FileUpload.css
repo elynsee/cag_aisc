@@ -1,0 +1,152 @@
+.dls-upload {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.dls-upload__zone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  align-items: center;
+  width: 100%;
+  padding: var(--spacing-40) var(--spacing-24);
+  text-align: center;
+  background: var(--color-grey-50);
+  border: 1px dashed var(--color-grey-200);
+  border-radius: var(--radius-lg);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+/* Spec: 1px brand border (Purple Primary/600) on hover / active drop zone. */
+.dls-upload__zone:hover,
+.dls-upload__zone--over {
+  background: var(--color-purple-100);
+  border: 1px solid var(--color-purple-600);
+}
+
+.dls-upload__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  color: var(--color-purple-600);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--radius-full);
+}
+
+.dls-upload__title {
+  color: var(--color-base-black);
+}
+
+.dls-upload__hint {
+  margin-top: var(--spacing-4);
+  color: var(--color-grey-500);
+}
+
+.dls-upload__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+  justify-content: center;
+}
+
+/* --- File list ----------------------------------------------------------- */
+.dls-upload__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dls-upload__item {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  column-gap: var(--spacing-12);
+  align-items: center;
+  padding: var(--spacing-12);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--radius-xs);
+}
+
+.dls-upload__item-icon {
+  display: grid;
+  place-items: center;
+  color: var(--color-grey-500);
+}
+
+.dls-upload__item-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  min-width: 0;
+}
+
+.dls-upload__item-head {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  min-width: 0;
+}
+
+.dls-upload__item-name {
+  overflow: hidden;
+  color: var(--color-base-black);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dls-upload__item-meta {
+  color: var(--color-grey-500);
+}
+.dls-upload__item-meta--error {
+  color: var(--color-red-600); /* §4.2 error text */
+}
+
+.dls-upload__progress {
+  display: block;
+  height: var(--spacing-6);
+  overflow: hidden;
+  background: var(--color-grey-100);
+  border-radius: var(--radius-xs);
+}
+
+.dls-upload__progress-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-purple-600);
+  transition: width 0.18s linear;
+}
+
+.dls-upload__item-actions {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: center;
+}
+
+.dls-upload__action {
+  display: inline-flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  color: var(--color-purple-600);
+}
+.dls-upload__action:hover {
+  color: var(--color-purple-700);
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .dls-upload__item {
+    grid-template-columns: 20px minmax(0, 1fr);
+    row-gap: var(--spacing-12);
+  }
+  .dls-upload__item-actions {
+    grid-column: 2;
+  }
+}

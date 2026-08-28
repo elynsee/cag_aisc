@@ -1,0 +1,116 @@
+.dls-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-24);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm); /* §10 Admin profile */
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Spec: minimum desktop width 240px. */
+.dls-btn--w-min {
+  min-width: 240px;
+}
+.dls-btn--w-fit {
+  min-width: auto;
+}
+.dls-btn--w-full {
+  width: 100%;
+}
+
+.dls-btn:disabled {
+  cursor: not-allowed;
+}
+
+/* --- Primary: §3.4 Purple/600 fill, /500 hover, /700 pressed ------------- */
+.dls-btn--primary {
+  background: var(--color-purple-600);
+  color: var(--color-base-white);
+}
+.dls-btn--primary:hover:not(:disabled) {
+  background: var(--color-purple-500);
+}
+.dls-btn--primary:active:not(:disabled) {
+  background: var(--color-purple-700);
+}
+
+/* --- Secondary: white fill, Purple/600 label + stroke -------------------- */
+.dls-btn--secondary {
+  background: var(--color-base-white);
+  color: var(--color-purple-600);
+  border-color: var(--color-purple-600);
+}
+.dls-btn--secondary:hover:not(:disabled) {
+  background: var(--color-purple-200);
+}
+.dls-btn--secondary:active:not(:disabled) {
+  background: var(--color-purple-100);
+  border-color: var(--color-purple-300);
+  color: var(--color-purple-700);
+}
+
+/* --- Tertiary: neutral outline (§4.1 default / hover states) ------------- */
+.dls-btn--tertiary {
+  background: var(--color-base-white);
+  color: var(--color-grey-700);
+  border-color: var(--color-grey-200);
+}
+.dls-btn--tertiary:hover:not(:disabled) {
+  background: var(--color-grey-75);
+  border-color: var(--color-grey-200);
+  color: var(--color-grey-800);
+}
+
+/* --- Link ---------------------------------------------------------------- */
+.dls-btn--link {
+  min-width: auto;
+  padding: 0;
+  background: none;
+  color: var(--color-purple-600);
+}
+.dls-btn--link:hover:not(:disabled) {
+  color: var(--color-purple-700);
+  text-decoration: underline;
+}
+
+/* --- Disabled (§4.1) ----------------------------------------------------- */
+.dls-btn--primary:disabled,
+.dls-btn--secondary:disabled,
+.dls-btn--tertiary:disabled {
+  background: var(--color-grey-25);
+  border-color: var(--color-grey-100);
+  color: var(--color-grey-300);
+}
+.dls-btn--link:disabled {
+  background: none;
+  color: var(--color-grey-300);
+}
+
+/* --- Loading ------------------------------------------------------------- */
+.dls-btn__spinner {
+  width: var(--spacing-16);
+  height: var(--spacing-16);
+  flex: none;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--radius-full);
+  opacity: 0.6;
+  animation: dls-btn-spin 0.7s linear infinite;
+}
+@keyframes dls-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 640px) {
+  .dls-btn--w-min {
+    width: 100%;
+    min-width: 100%;
+  }
+}

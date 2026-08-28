@@ -1,0 +1,148 @@
+/* ============================================================================
+   RUNWAY DLS — COMPOSITE TEXT STYLES (SKILL.md §6)
+   Per usage guide §9.3, composite styles are mapped to reusable utility
+   classes here rather than repeated as inline declarations.
+   Font size / weight / line height / letter spacing may only be set here.
+   ========================================================================== */
+
+.t-h1,
+.t-h2,
+.t-h3,
+.t-h4,
+.t-h5,
+.t-h5-admin,
+.t-h6,
+.t-subheading,
+.t-body,
+.t-body-bold,
+.t-body-sm,
+.t-body-sm-bold,
+.t-small,
+.t-small-bold,
+.t-tag,
+.t-xsmall,
+.t-xxsmall,
+.t-caps-heading,
+.t-caps-caption {
+  font-family: var(--font-family-lato);
+  letter-spacing: var(--letter-spacing-0);
+}
+
+/* H1 — 48 / 700 / 58 */
+.t-h1 {
+  font-size: var(--font-size-48);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-58);
+}
+/* H2 — 36 / 700 / 42 */
+.t-h2 {
+  font-size: var(--font-size-36);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-42);
+}
+/* H3 — 32 / 700 / 40 */
+.t-h3 {
+  font-size: var(--font-size-32);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-40);
+}
+/* H4 — 28 / 700 / 36 */
+.t-h4 {
+  font-size: var(--font-size-28);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-36);
+}
+/* H5 — 24 / 700 / 32 */
+.t-h5 {
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-32);
+}
+/* H5, Admin profile override (SKILL.md §10 "Headers: Lato Black, 24pt").
+   Size and line height stay on the H5 composite; weight steps to Black. */
+.t-h5-admin {
+  font-size: var(--font-size-24);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-32);
+}
+/* H6 — 20 / 700 / 28 */
+.t-h6 {
+  font-size: var(--font-size-20);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-28);
+}
+/* Subheading — 18 / 400 / 22 */
+.t-subheading {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-22);
+}
+/* Body Default — 16 / 400 / 20 (bold variant for inline emphasis only) */
+.t-body {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-20);
+}
+.t-body-bold {
+  font-size: var(--font-size-16);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-20);
+}
+/* Body Small — 14 / 400 / 18 */
+.t-body-sm {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-18);
+}
+.t-body-sm-bold {
+  font-size: var(--font-size-14);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-18);
+}
+/* Small Text — 12 / 400 / 16 */
+.t-small {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-16);
+}
+.t-small-bold {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-16);
+}
+/* Small Text / Tag — 12 / 700 / 16 */
+.t-tag {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-16);
+}
+/* xSmall Text — 11 / 700 / 14 / ls 4 */
+.t-xsmall {
+  font-size: var(--font-size-11);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-14);
+  letter-spacing: var(--letter-spacing-4);
+}
+/* xxSmall Text — 10 / 400 / 12 / ls 4 */
+.t-xxsmall {
+  font-size: var(--font-size-10);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-12);
+  letter-spacing: var(--letter-spacing-4);
+}
+/* All Caps Heading — 18 / 700 / 22 / ls 6 */
+.t-caps-heading {
+  font-size: var(--font-size-18);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-22);
+  letter-spacing: var(--letter-spacing-6);
+  text-transform: uppercase;
+}
+/* All Caps Caption — 12 / 700 / 16 / ls 6 */
+.t-caps-caption {
+  font-size: var(--font-size-12);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-16);
+  letter-spacing: var(--letter-spacing-6);
+  text-transform: uppercase;
+}

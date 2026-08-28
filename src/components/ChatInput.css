@@ -1,0 +1,86 @@
+.dls-chat {
+  display: flex;
+  flex-direction: column;
+}
+
+.dls-chat__label {
+  margin-bottom: var(--spacing-8);
+  color: var(--color-grey-600);
+}
+
+.dls-chat__helper {
+  margin-top: var(--spacing-8);
+  color: var(--color-grey-500);
+}
+
+.dls-chat__shell {
+  display: flex;
+  gap: var(--spacing-12);
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-8) var(--spacing-8) var(--spacing-12);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-200);
+  border-radius: var(--radius-sm);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* §9.2 — inputs get both layers: brand border + 4px light glow. */
+.dls-chat__shell:focus-within {
+  border-color: var(--ring-brand);
+  box-shadow: 0 0 0 4px var(--ring-light);
+}
+
+.dls-chat__input {
+  flex: 1;
+  min-width: 0;
+  padding: var(--spacing-8) 0;
+  color: var(--color-grey-700);
+  background: none;
+  border: 0;
+  outline: none; /* the shell renders the visible ring */
+}
+.dls-chat__input::placeholder {
+  color: var(--color-grey-300);
+}
+
+.dls-chat__attach {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-grey-600);
+  background: var(--color-grey-50);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--radius-sm);
+}
+.dls-chat__attach:hover {
+  color: var(--color-grey-800);
+  background: var(--color-grey-75);
+}
+
+.dls-chat__send {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-grey-400);
+  background: var(--color-grey-100);
+  border-radius: var(--radius-sm);
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+.dls-chat__send--active {
+  color: var(--color-base-white);
+  background: var(--color-grey-700);
+}
+.dls-chat__send--active:hover {
+  background: var(--color-grey-800);
+}
+.dls-chat__send:disabled {
+  cursor: not-allowed;
+}

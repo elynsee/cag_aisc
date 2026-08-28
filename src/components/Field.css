@@ -1,0 +1,90 @@
+.dls-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.dls-field__label {
+  color: var(--color-grey-600); /* §4.2 label text */
+  margin-bottom: var(--spacing-8);
+}
+
+.dls-field__helper {
+  color: var(--color-grey-500); /* §4.2 secondary / muted */
+  margin-top: var(--spacing-8);
+}
+
+.dls-field__error {
+  color: var(--color-red-600); /* §4.2 error text */
+  margin-top: var(--spacing-8);
+}
+
+/* Shell carries border + focus treatment so the two-layer ring sits outside
+   the border, per §9.2. lg size (desktop) — md at the mobile breakpoint. */
+.dls-field__shell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: 48px;
+  padding: var(--spacing-8) var(--spacing-12);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-200); /* §3.2 default input border */
+  border-radius: var(--radius-sm); /* §10 shared profile: input radius */
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.dls-field__shell:hover {
+  border-color: var(--color-grey-300);
+}
+
+/* §9.2 form inputs: inner ring-brand border + 4px ring-light outer glow */
+.dls-field__shell:focus-within {
+  border-color: var(--ring-brand);
+  box-shadow: 0 0 0 4px var(--ring-light);
+}
+
+.dls-field__shell--error {
+  border-color: var(--color-red-600);
+}
+.dls-field__shell--error:focus-within {
+  border-color: var(--color-red-600);
+  box-shadow: 0 0 0 4px var(--ring-error);
+}
+
+.dls-field__input {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+  color: var(--color-grey-700);
+  background: none;
+  border: 0;
+  /* Outline is suppressed only because the shell renders the visible ring. */
+  outline: none;
+}
+
+.dls-field__input::placeholder {
+  color: var(--color-grey-300); /* §4.2 placeholder */
+}
+
+.dls-field__input:disabled {
+  color: var(--color-grey-300);
+}
+
+.dls-field__prefix {
+  color: var(--color-grey-500);
+}
+
+.dls-field__suffix {
+  flex: none;
+  padding-left: var(--spacing-8);
+  color: var(--color-grey-500);
+  border-left: 1px solid var(--color-grey-100);
+}
+
+@media (max-width: 640px) {
+  /* md size on mobile */
+  .dls-field__shell {
+    min-height: 40px;
+  }
+}

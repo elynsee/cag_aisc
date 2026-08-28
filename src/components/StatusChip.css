@@ -1,0 +1,53 @@
+.dls-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  padding: var(--spacing-4) var(--spacing-8);
+  /* Rectangular for B2B/admin — radius-xs, not radius-full. */
+  border: 1px solid transparent;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+  /* Spec: static indicator — never interactive. */
+  pointer-events: none;
+  user-select: none;
+}
+
+.dls-chip__icon {
+  display: grid;
+  place-items: center;
+}
+
+/* §3.7 Green Success — 200 fill / 300 stroke / 900 text */
+.dls-chip--success {
+  background: var(--color-green-200);
+  border-color: var(--color-green-300);
+  color: var(--color-green-900);
+}
+
+/* §3.6 Orange Warning — 200 fill / 300 stroke / 900 text */
+.dls-chip--warning {
+  background: var(--color-orange-200);
+  border-color: var(--color-orange-300);
+  color: var(--color-orange-900);
+}
+
+/* §3.5 Red Error — 200 fill / 300 stroke / 600 text */
+.dls-chip--error {
+  background: var(--color-red-200);
+  border-color: var(--color-red-300);
+  color: var(--color-red-600);
+}
+
+/* §3.2 Grey — 75 fill / 200 stroke / 700 text */
+.dls-chip--neutral {
+  background: var(--color-grey-75);
+  border-color: var(--color-grey-200);
+  color: var(--color-grey-700);
+}
+
+/* Extended palette Gray blue — informational badge (never a CTA colour) */
+.dls-chip--info {
+  background: var(--color-grayblue-200);
+  border-color: var(--color-grayblue-300);
+  color: var(--color-grayblue-900);
+}

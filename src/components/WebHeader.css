@@ -1,0 +1,213 @@
+/* Web Header — Admin. Sticky, full bleed (col 1–12 / 1–6 / 1–4). */
+.dls-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-base-white);
+  border-bottom: 1px solid var(--color-grey-100); /* §3.2 divider */
+}
+
+.dls-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-32);
+  padding: var(--spacing-16) var(--grid-desktop-margin);
+}
+
+.dls-header__brand {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  text-decoration: none;
+}
+
+.dls-header__brand-mark {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.dls-header__brand-name {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.dls-header__brand-primary {
+  color: var(--color-base-black);
+  letter-spacing: var(--letter-spacing-2);
+}
+
+.dls-header__brand-secondary {
+  color: var(--color-grey-500);
+  text-transform: uppercase;
+}
+
+.dls-header__nav {
+  display: flex;
+  gap: var(--spacing-24);
+}
+
+.dls-header__nav-link {
+  padding: var(--spacing-4) 0;
+  color: var(--color-grey-700);
+  background: none;
+  border-bottom: var(--spacing-2) solid transparent;
+}
+.dls-header__nav-link:hover {
+  color: var(--color-purple-600);
+}
+/* Active nav uses the brand colour — Purple Primary/600 (§3.4). */
+.dls-header__nav-link--active {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-purple-600);
+  border-bottom-color: var(--color-purple-600);
+}
+
+.dls-header__actions {
+  display: flex;
+  gap: var(--spacing-16);
+  align-items: center;
+  margin-left: auto;
+}
+
+.dls-header__icon-btn {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-grey-600);
+  border-radius: var(--radius-sm);
+}
+.dls-header__icon-btn:hover {
+  color: var(--color-grey-800);
+  background: var(--color-grey-75); /* §4.1 hover */
+}
+
+/* Hamburger appears only where the horizontal nav is hidden. */
+.dls-header__menu-toggle {
+  display: none;
+}
+
+.dls-header__account {
+  position: relative;
+}
+
+.dls-header__account-trigger {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-8);
+  border-radius: var(--radius-sm);
+}
+.dls-header__account-trigger:hover {
+  background: var(--color-grey-75);
+}
+
+.dls-header__avatar {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-purple-800);
+  background: var(--color-purple-100);
+  border-radius: var(--radius-full); /* avatar circle */
+}
+
+/* Spec: text truncation applies if the username is long. */
+.dls-header__account-name {
+  max-width: 160px;
+  overflow: hidden;
+  color: var(--color-grey-700);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dls-header__account-chevron {
+  flex: none;
+  color: var(--color-grey-500);
+  transition: transform 0.15s ease;
+}
+.dls-header__account-chevron--open {
+  transform: rotate(180deg);
+}
+
+.dls-header__menu {
+  position: absolute;
+  top: calc(100% + var(--spacing-8));
+  right: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  padding: var(--spacing-4);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-100);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-light-bg);
+}
+
+.dls-header__menu-item {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-12);
+  color: var(--color-grey-700);
+  text-align: left;
+  border-radius: var(--radius-xs);
+}
+.dls-header__menu-item:hover {
+  color: var(--color-grey-800);
+  background: var(--color-grey-75);
+}
+
+.dls-header__drawer {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .dls-header__inner {
+    gap: var(--spacing-16);
+    padding-right: var(--grid-tablet-margin);
+    padding-left: var(--grid-tablet-margin);
+  }
+  .dls-header__nav {
+    gap: var(--spacing-16);
+  }
+}
+
+@media (max-width: 640px) {
+  .dls-header__inner {
+    padding-right: var(--spacing-16);
+    padding-left: var(--spacing-16);
+  }
+  /* Nav collapses into the hamburger drawer at mobile. */
+  .dls-header__nav {
+    display: none;
+  }
+  .dls-header__menu-toggle {
+    display: grid;
+  }
+  .dls-header__account-name {
+    display: none;
+  }
+  .dls-header__drawer {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-8) var(--spacing-16) var(--spacing-16);
+    border-top: 1px solid var(--color-grey-100);
+  }
+  .dls-header__drawer-link {
+    padding: var(--spacing-12);
+    color: var(--color-grey-700);
+    text-align: left;
+    border-radius: var(--radius-xs);
+  }
+  .dls-header__drawer-link--active {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-purple-800);
+    background: var(--color-purple-100); /* §4.1 selected */
+    border: 1px solid var(--color-purple-300);
+  }
+}

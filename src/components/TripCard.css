@@ -1,0 +1,230 @@
+.dls-trip {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  background: var(--color-base-white);
+  border: 1px solid var(--color-grey-100);
+  /* Gray blue accent — category identity for travel, never an interactive cue. */
+  border-left: var(--spacing-4) solid var(--color-grayblue-500);
+  border-radius: var(--radius-lg); /* big card */
+}
+
+.dls-trip__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--spacing-16);
+  align-items: start;
+}
+
+.dls-trip__head-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.dls-trip__eyebrow {
+  display: flex;
+  gap: var(--spacing-8);
+  align-items: center;
+}
+
+.dls-trip__ref {
+  color: var(--color-grey-500);
+}
+
+.dls-trip__title {
+  color: var(--color-base-black);
+}
+
+.dls-trip__meta {
+  color: var(--color-grey-500);
+}
+
+.dls-trip__amount {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  text-align: right;
+}
+
+.dls-trip__amount-value {
+  color: var(--color-base-black);
+  font-variant-numeric: tabular-nums;
+}
+
+.dls-trip__amount-label {
+  color: var(--color-grey-500);
+}
+
+/* --- Budget -------------------------------------------------------------- */
+.dls-trip__budget {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.dls-trip__budget-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-grey-500);
+}
+
+.dls-trip__budget-bar {
+  height: var(--spacing-6);
+  overflow: hidden;
+  background: var(--color-grey-100);
+  border-radius: var(--radius-xs);
+}
+
+.dls-trip__budget-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-grayblue-500);
+  transition: width 0.2s ease;
+}
+
+.dls-trip__budget-note {
+  color: var(--color-grey-500);
+}
+
+/* --- Legs ---------------------------------------------------------------- */
+.dls-trip__legs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16) 0 0;
+  margin: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-grey-100);
+}
+
+.dls-trip__leg {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 132px 96px;
+  column-gap: var(--spacing-16);
+  align-items: center;
+}
+
+.dls-trip__leg-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.dls-trip__leg-name {
+  color: var(--color-grey-700);
+}
+
+.dls-trip__leg-meta {
+  color: var(--color-grey-500);
+}
+
+.dls-trip__leg-amount {
+  color: var(--color-base-black);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Detail / form panels ------------------------------------------------ */
+.dls-trip__detail {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--spacing-16);
+  row-gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  margin: 0;
+  background: var(--color-grey-50);
+  border-radius: var(--radius-md);
+}
+
+.dls-trip__detail-pair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.dls-trip__detail-term {
+  color: var(--color-grey-500);
+}
+
+.dls-trip__detail-value {
+  margin: 0;
+  color: var(--color-grey-700);
+}
+
+.dls-trip__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  background: var(--color-grayblue-100);
+  border: 1px solid var(--color-grayblue-200);
+  /* Nesting rule §8: outer radius-lg (16) − 16px gap → radius-none would be
+     flush, so radius-md keeps the panel visually inset without touching. */
+  border-radius: var(--radius-md);
+}
+
+.dls-trip__form-title {
+  color: var(--color-base-black);
+}
+
+.dls-trip__form-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  column-gap: var(--spacing-16);
+  align-items: start;
+}
+
+.dls-trip__form-actions,
+.dls-trip__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
+
+@media (max-width: 1024px) {
+  .dls-trip__leg {
+    grid-template-columns: minmax(0, 1fr) 120px 88px;
+  }
+}
+
+@media (max-width: 640px) {
+  .dls-trip__head {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--spacing-12);
+  }
+  .dls-trip__amount {
+    text-align: left;
+  }
+  /* Two columns at mobile: name on the left, status over amount on the
+     right — otherwise the amount wraps onto its own row under the name. */
+  .dls-trip__leg {
+    grid-template-columns: minmax(0, 1fr) auto;
+    row-gap: var(--spacing-4);
+  }
+  .dls-trip__leg-body {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+  .dls-trip__leg > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .dls-trip__leg-amount {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .dls-trip__leg-meta {
+    display: none;
+  }
+  .dls-trip__detail,
+  .dls-trip__form-fields {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--spacing-16);
+  }
+}
